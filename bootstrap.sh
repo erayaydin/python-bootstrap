@@ -9,15 +9,18 @@ APT_FORCE="sudo apt-get -f install"
 # Variable for pip package manager
 PIP_INSTALL="sudo pip install -U"
 
+# Directories
+PACKAGES="packages"
+
 # Requirements files
-BASIC_R="basic.txt"
-MAKE_R="make.txt"
-PYTHON_R="python.txt"
-PIP_R="pip.txt"
+BASIC_R="basic"
+MAKE_R="make"
+PYTHON_R="python"
+PIP_R="pip"
 
 # Install function with package manager
 install_from(){
-	for line in $(cat "$2"); do
+	for line in $(cat $PACKAGES"/"$2); do
 	  $1 $line
 	done
 }
